@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VALHALLA Console Clinic</title>
+    <!-- اتصال به استایل‌های استخراج شده شما -->
+    <link rel="stylesheet" href="style/style.css">
     <style>
         * {
             box-sizing: border-box;
         }
         body {
-            /* تنظیم عکس به عنوان پس‌زمینه کامل */
             background: #000 url('bg.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
@@ -22,62 +23,99 @@
             justify-content: space-between;
             align-items: flex-end;
         }
-
-        /* باکس پیام وضعیت کپی‌خور - سایز بزرگ و خوانا */
-        .status-container {
-            background: rgba(13, 15, 18, 0.9);
+        .brand-box {
+            background: rgba(13, 15, 18, 0.88);
             border: 2px solid #c5a059;
             border-radius: 12px;
-            padding: 18px 25px;
+            padding: 15px 25px;
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(6px);
+        }
+        .brand-title {
+            color: #c5a059;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .brand-dev {
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .brand-dev span {
+            color: #00ffcc;
+            font-weight: bold;
+        }
+        .main-action {
+            background: rgba(10, 12, 15, 0.9);
+            border: 2px solid #c5a059;
+            border-radius: 14px;
+            padding: 20px;
             max-width: 480px;
             width: 100%;
             text-align: center;
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(6px);
         }
-
-        .status-title {
-            color: #c5a059;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-
-        .status-msg {
+        .launch-btn {
+            display: block;
+            background: linear-gradient(145deg, #2a2212, #1a150a);
+            border: 2px solid #00ffcc;
             color: #00ffcc;
+            padding: 18px;
             font-size: 20px;
             font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.2s;
+            box-shadow: 0 0 15px rgba(0,255,204,0.3);
+            cursor: pointer;
         }
-
-        /* راهنمای بالا سمت راست - درشت و کاملاً واضح روی تلویزیون */
-        .info-badge {
-            background: rgba(0, 0, 0, 0.75);
-            border-right: 5px solid #c5a059;
-            padding: 15px 22px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #f0f6fc;
-            line-height: 1.8;
-            max-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        .launch-btn:hover {
+            background: #00ffcc;
+            color: #000;
+            box-shadow: 0 0 25px #00ffcc;
+        }
+        .status-box {
+            background: rgba(13, 15, 18, 0.9);
+            border: 1px solid #c5a059;
+            border-radius: 8px;
+            padding: 12px 20px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+        }
+        .status-msg {
+            color: #00ffcc;
+            font-size: 17px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- راهنمای درشت بالا سمت راست -->
-    <div class="info-badge">
-        • در صورت بروز خطا، کنسول را ری‌استارت کنید.<br>
-        • بدون نیاز به فلش برای فریمورهای ۶.۰۰ تا ۱۱.۰۲
+    <div class="brand-box">
+        <div class="brand-title">VALHALLA Console Clinic</div>
+        <div class="brand-dev">Developer & Designer: <span>Ali Sharifi</span></div>
     </div>
 
-    <!-- کادر وضعیت لود جیلبریک/گلدهن در پایین سمت راست -->
-    <div class="status-container">
-        <div class="status-title">STATUS</div>
-        <div class="status-msg" id="msgs">Awaiting Jailbreak...</div>
+    <div class="main-action">
+        <!-- دکمه‌ای که اسکریپت‌ها و تایمر روی آن سوار می‌شوند -->
+        <a href="#" id="exploit-trigger" class="launch-btn">🚀 شروع جیلبریک (6.00 تا 11.02)</a>
     </div>
 
+    <div class="status-box">
+        <div class="status-msg" id="msgs">Ready for Exploit...</div>
+    </div>
+
+    <!-- اتصال فایل‌های جاوااسکریپت اکسپلویت و تایمر -->
+    <script src="script.js"></script>
+    <script src="misc.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
